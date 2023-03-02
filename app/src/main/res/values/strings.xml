@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Crowdfunding</string>
+    <string name="title_home">Home</string>
+    <string name="title_me">Me</string>
+</resources>
