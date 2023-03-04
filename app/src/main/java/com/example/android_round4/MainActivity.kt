@@ -1,22 +1,21 @@
 package com.example.android_round4
 
-import android.app.Activity
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.android_round4.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-companion object{
-    lateinit var activity: Activity
-}
+
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -33,7 +32,14 @@ companion object{
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-        activity = this
+
+ //TODO: 跳转成功，但是闪退
+//        val id = intent.getStringExtra("id")
+//        if(id=="1")
+//        {
+//            binding.navView.selectedItemId = R.id.navigation_me
+//        }
 
     }
+
 }

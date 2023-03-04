@@ -19,7 +19,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class AdminActivity : AppCompatActivity() {
     val retrofit = Retrofit.Builder()
-        .baseUrl("http://10.0.2.2:8083/")
+        .baseUrl("http://money.mewtopia.cn:8083/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
     val appService = retrofit.create(AppService::class.java)
@@ -36,12 +36,12 @@ class AdminActivity : AppCompatActivity() {
         allUnknown.setOnClickListener{
             allunknown()
         }
-
+        allpass()
 
     }
 
     fun allpass() {
-        appService.getprojectlist().enqueue(object : Callback<ProjectList> {
+        appService.getprojectpasslist().enqueue(object : Callback<ProjectList> {
             override fun onResponse(call: Call<ProjectList>, response: Response<ProjectList>) {
                 projectList = response.body()
                 Log.d("我拿到的数据库数据", response.body().toString())

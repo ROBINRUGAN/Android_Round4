@@ -49,14 +49,14 @@ public class AdminAdapter(val projectList: ProjectList,val activity: AdminActivi
             intent.putExtra("project.price",project.price)
             intent.putExtra("project.telephone",project.telephone)
             intent.putExtra("project.id",project.id)
-            intent.putExtra("user.id",project.user_id)
+            intent.putExtra("user.id",project.userid)
             view.context.startActivity(intent)
         }
         view.passbtn.setOnClickListener{
             val position = viewHolder.bindingAdapterPosition
             val project = projectList[position]
             val retrofit = Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8083/")
+                .baseUrl("http://money.mewtopia.cn:8083/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             val appService = retrofit.create(AppService::class.java)
@@ -82,7 +82,7 @@ public class AdminAdapter(val projectList: ProjectList,val activity: AdminActivi
             val position = viewHolder.bindingAdapterPosition
             val project = projectList[position]
             val retrofit = Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8083/")
+                .baseUrl("http://money.mewtopia.cn:8083/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             val appService = retrofit.create(AppService::class.java)
@@ -104,9 +104,31 @@ public class AdminAdapter(val projectList: ProjectList,val activity: AdminActivi
                 }
             })
         }
-//        view.delbtn.setOnClickListener{
-//            TODO("等待后端接口")
-//        }
+        view.delbtn.setOnClickListener{
+            val position = viewHolder.bindingAdapterPosition
+            val project = projectList[position]
+            val retrofit = Retrofit.Builder()
+                .baseUrl("http://money.mewtopia.cn:8083/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+            val appService = retrofit.create(AppService::class.java)
+            Log.d("meww", "我进来else了")
+            val map = jsonOf(
+                "item_id" to project.id
+            )
+            appService.getdel(map).enqueue(object : Callback<Check> {
+                override fun onResponse(call: Call<Check>, response: Response<Check>) {
+                    val checkData = response.body()
+                    if (checkData != null)
+                        Toast.makeText(appContext, checkData.msg, Toast.LENGTH_SHORT).show()
+                    else
+                        Log.d("meww", "wrong")
+                }
+                override fun onFailure(call: Call<Check>, t: Throwable) {
+                    t.printStackTrace()
+                }
+            })
+        }
         return viewHolder
     }
 

@@ -9,26 +9,30 @@
         android:id="@+id/projectTitle"
         android:layout_width="284dp"
         android:layout_height="74dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="4dp"
         android:text="标题标党的好帖天天有一头热要让他标题"
         android:textAlignment="center"
         android:textSize="23sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.489" />
 
     <ImageView
         android:id="@+id/projectImage"
-        android:layout_width="106dp"
-        android:layout_height="121dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:src="@drawable/meww"
+        android:layout_width="107dp"
+        android:layout_height="111dp"
+        android:layout_marginStart="15sp"
+        android:layout_marginBottom="10sp"
+        android:src="@mipmap/meww"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/projectTitle"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
     </ImageView>
 

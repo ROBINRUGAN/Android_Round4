@@ -35,7 +35,7 @@ public class ProjectAdapter(val projectList: ProjectList, val fragment: Fragment
             intent.putExtra("project.price",project.price)
             intent.putExtra("project.telephone",project.telephone)
             intent.putExtra("project.id",project.id)
-            intent.putExtra("user.id",project.user_id)
+            intent.putExtra("user.id",project.userid)
             view.context.startActivity(intent)
         }
         return viewHolder

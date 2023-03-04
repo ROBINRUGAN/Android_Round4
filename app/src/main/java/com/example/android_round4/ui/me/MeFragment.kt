@@ -11,10 +11,7 @@ import android.widget.Toast
 import androidx.core.graphics.convertTo
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.example.android_round4.AddActivity
-import com.example.android_round4.AdminActivity
-import com.example.android_round4.AppService
-import com.example.android_round4.Myapplication
+import com.example.android_round4.*
 import com.example.android_round4.databinding.FragmentMeBinding
 import com.example.android_round4.entity.Login
 import com.example.android_round4.entity.Register
@@ -47,10 +44,16 @@ class MeFragment : Fragment() {
             UserShow()
             MeGone()
             binding.userCenterName.text = Myapplication.UserData!!.data.user.name
-            binding.userCenterEmail.text = "邮箱: " + Myapplication.UserData!!.data.user.email
+            binding.userCenterEmail.text = Myapplication.UserData!!.data.user.email
             binding.userCenterType.text = when (Myapplication.UserData!!.data.user.status) {
-                1 -> "管理员"
-                else -> "普通用户"
+                0 -> {
+                    binding.toAdminBtn.visibility=View.VISIBLE
+                    "管理员"
+                }
+                else -> {
+                    binding.toAdminBtn.visibility=View.GONE
+                    "普通用户"
+                }
             }
             binding.userCenterMoney.text = Myapplication.UserData!!.data.user.money.toString()
         }
@@ -61,7 +64,7 @@ class MeFragment : Fragment() {
                 binding.email.visibility = View.GONE
             } else {
                 val retrofit = Retrofit.Builder()
-                    .baseUrl("http://10.0.2.2:8083/")
+                    .baseUrl("http://money.mewtopia.cn:8083/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
                 val appService = retrofit.create(AppService::class.java)
@@ -87,11 +90,17 @@ class MeFragment : Fragment() {
                                 binding.userCenterName.text =
                                     Myapplication.UserData!!.data.user.name
                                 binding.userCenterEmail.text =
-                                    "邮箱: " + Myapplication.UserData!!.data.user.email
+                                    Myapplication.UserData!!.data.user.email
                                 binding.userCenterType.text =
                                     when (Myapplication.UserData!!.data.user.status) {
-                                        1 -> "管理员"
-                                        else -> "普通用户"
+                                        0 -> {
+                                            binding.toAdminBtn.visibility=View.VISIBLE
+                                            "管理员"
+                                        }
+                                        else -> {
+                                            binding.toAdminBtn.visibility=View.GONE
+                                            "普通用户"
+                                        }
                                     }
                                 binding.userCenterMoney.text =
                                     Myapplication.UserData!!.data.user.money.toString()
@@ -118,7 +127,7 @@ class MeFragment : Fragment() {
                 binding.email.visibility = View.VISIBLE
             } else {
                 val retrofit = Retrofit.Builder()
-                    .baseUrl("http://10.0.2.2:8083/")
+                    .baseUrl("http://money.mewtopia.cn:8083/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build()
                 val appService = retrofit.create(AppService::class.java)
@@ -142,6 +151,11 @@ class MeFragment : Fragment() {
                     }
                 })
             }
+        }
+
+        binding.myProject.setOnClickListener(){
+            val intent = Intent(context,PersonalActivity::class.java)
+            this.startActivity(intent)
         }
 
         binding.toMeBtn.setOnClickListener()
@@ -191,6 +205,7 @@ class MeFragment : Fragment() {
         binding.userCenterType.visibility = View.GONE
         binding.yue.visibility = View.GONE
         binding.leixing.visibility = View.GONE
+        binding.youxiang.visibility = View.GONE
         binding.toAdminBtn.visibility = View.GONE
         binding.toMeBtn.visibility = View.GONE
         binding.addBtn.visibility = View.GONE
@@ -204,6 +219,7 @@ class MeFragment : Fragment() {
         binding.userCenterName.visibility = View.VISIBLE
         binding.userCenterType.visibility = View.VISIBLE
         binding.yue.visibility = View.VISIBLE
+        binding.youxiang.visibility = View.VISIBLE
         binding.leixing.visibility = View.VISIBLE
         binding.toAdminBtn.visibility = View.VISIBLE
         binding.toMeBtn.visibility = View.VISIBLE

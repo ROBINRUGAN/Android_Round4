@@ -35,7 +35,7 @@ data class ProjectListItem(
     val status: Int,
     val telephone: String,
     val title: String,
-    val user_id: Int
+    val userid: Int
 )
 data class Add(
     val code: Int,

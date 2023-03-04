@@ -19,6 +19,7 @@ import com.example.android_round4.entity.Project
 import com.example.android_round4.entity.ProjectList
 import com.example.android_round4.entity.ProjectListItem
 import com.example.android_round4.util.appContext
+import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -42,18 +43,20 @@ class HomeFragment : Fragment() {
 //            ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
         val root: View = binding.root
 //        val textView: TextView = binding.textHome
 //        homeViewModel.text.observe(viewLifecycleOwner) {
 //            textView.text = it
 //        }
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:8083/")
+            .baseUrl("http://money.mewtopia.cn:8083/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
         val appService = retrofit.create(AppService::class.java)
         appService.getprojectlist().enqueue(object : Callback<ProjectList> {
             override fun onResponse(call: Call<ProjectList>, response: Response<ProjectList>){
+                Log.d("MEWWWWW", _binding.toString())
                 projectList = response.body()
                 Log.d("我拿到的数据库数据", response.body().toString())
                 val layoutManager = LinearLayoutManager(appContext)
@@ -68,6 +71,27 @@ class HomeFragment : Fragment() {
             }
 
         })
+        binding.searchbtn.setOnClickListener{
+            appService.getsearchlist(binding.searchtext.text.toString()).enqueue(object : Callback<ProjectList> {
+                override fun onResponse(call: Call<ProjectList>, response: Response<ProjectList>){
+                    projectList = response.body()
+                    Log.d("我拿到的数据库数据", response.body().toString())
+//                    val layoutManager = LinearLayoutManager(appContext)
+//                    binding.recycleview.layoutManager = layoutManager
+                    Log.d("我要输出了？", projectList.toString())
+                    val adapter = ProjectAdapter(projectList!!, this@HomeFragment)
+                    binding.recycleview.adapter = adapter
+                }
+
+                override fun onFailure(call: Call<ProjectList>, t: Throwable) {
+                    t.printStackTrace()
+                }
+
+            })
+
+        }
+
+
         return root
     }
 

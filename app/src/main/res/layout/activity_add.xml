@@ -61,7 +61,7 @@
         android:layout_height="252dp"
         android:layout_marginTop="252dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/meww"
+        android:src="@mipmap/meww"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"

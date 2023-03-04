@@ -8,64 +8,90 @@
 
     <TextView
         android:id="@+id/userCenterMoney"
-        android:layout_width="297dp"
-        android:layout_height="45dp"
+        android:layout_width="275dp"
+        android:layout_height="40dp"
         android:text="999999"
         android:textAlignment="textStart"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.451"></TextView>
+        app:layout_constraintVertical_bias="0.439"></TextView>
 
     <TextView
         android:id="@+id/userCenterType"
-        android:layout_width="297dp"
-        android:layout_height="39dp"
+        android:layout_width="275dp"
+        android:layout_height="40dp"
         android:text="管理员"
         android:textAlignment="textStart"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/leixing"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.352"></TextView>
 
     <TextView
         android:id="@+id/leixing"
-        android:layout_width="104dp"
-        android:layout_height="38dp"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="10sp"
         android:text="类型: "
         android:textAlignment="textEnd"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/userCenterType"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.353"></TextView>
 
     <TextView
         android:id="@+id/yue"
-        android:layout_width="113dp"
+        android:layout_width="wrap_content"
         android:layout_height="40dp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="10sp"
         android:text="余额: "
         android:textAlignment="textEnd"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/userCenterMoney"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45"></TextView>
+        app:layout_constraintVertical_bias="0.442"></TextView>
+
+    <TextView
+        android:id="@+id/youxiang"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="10sp"
+        android:text="邮箱: "
+        android:textAlignment="textEnd"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/userCenterEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.276"></TextView>
 
     <TextView
         android:id="@+id/userCenterEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:text="邮箱: 1220045015@qq.com"
-        android:textAlignment="center"
+        android:layout_width="275dp"
+        android:layout_height="39dp"
+        android:text="1220045015@qq.com"
+        android:textAlignment="textStart"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.278"></TextView>
+        app:layout_constraintVertical_bias="0.277"></TextView>
 
     <TextView
         android:id="@+id/userCenterName"
@@ -81,8 +107,10 @@
 
     <Button
         android:id="@+id/toAdminBtn"
-        android:layout_width="390sp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
         android:text="进入管理员界面"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,8 +121,10 @@
 
     <Button
         android:id="@+id/addBtn"
-        android:layout_width="390sp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
         android:text="新增项目"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,8 +135,10 @@
 
     <Button
         android:id="@+id/myProject"
-        android:layout_width="390sp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
         android:text="我的已上传项目"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -117,11 +149,13 @@
 
     <Button
         android:id="@+id/toMeBtn"
-        android:layout_width="390sp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
         android:text="退出登录"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.838"></Button>
@@ -141,13 +175,13 @@
         android:id="@+id/registerbtn"
         android:layout_width="126dp"
         android:layout_height="56dp"
-        android:layout_marginEnd="72dp"
         android:text="注册"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.685" />
+        app:layout_constraintStart_toEndOf="@+id/loginbtn"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintVertical_bias="0.396" />
 
     <TextView
         android:id="@+id/textView"
@@ -188,13 +222,14 @@
         android:id="@+id/loginbtn"
         android:layout_width="126dp"
         android:layout_height="56dp"
-        android:layout_marginStart="64dp"
         android:text="登录"
-        android:textSize="20sp"
 
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/registerbtn"
+        app:layout_constraintHorizontal_bias="0.572"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.685" />
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintVertical_bias="0.396" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

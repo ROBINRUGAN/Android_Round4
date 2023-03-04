@@ -40,7 +40,7 @@ class AddActivity : AppCompatActivity() {
         }
         projectSubmitBtn.setOnClickListener{
             val retrofit = Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:8083/")
+                .baseUrl("http://money.mewtopia.cn:8083/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
             val appService = retrofit.create(AppService::class.java)

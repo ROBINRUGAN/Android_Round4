@@ -26,9 +26,12 @@ interface AppService {
         @Query("title") title: String,
         @Query("content") content: String,
         @Query("telephone") telephone: String,
-        @Query("user_id") user_id: Int,
+        @Query("userid") userid: Int,
         @Part file: MultipartBody.Part
     ): retrofit2.Call<Add>
+
+    @POST("sys/item/getmyitem/{id}")
+    fun getprojectpersonallist(@Path("id") id:Int ): retrofit2.Call<ProjectList>
 
     @POST("sys/item/viewItem/0")
     fun getprojectunknownlist(): retrofit2.Call<ProjectList>
@@ -44,4 +47,10 @@ interface AppService {
 
     @POST("sys/item/verify")
     fun getcheck(@Body body: RequestBody): retrofit2.Call<Check>
+
+    @POST("sys/item/deletelist")
+    fun getdel(@Body body: RequestBody): retrofit2.Call<Check>
+
+    @POST("sys/item/find")
+    fun getsearchlist(@Query("title")title: String): retrofit2.Call<ProjectList>
 }
